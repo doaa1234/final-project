@@ -50,7 +50,6 @@ app.get('/export-csv', function (req, res) {
   });
 });
 
-// port must be set to 8080 because incoming http requests are routed from port 80 to port 8080
 class PORT{
   constructor(){
     app.listen(8000, function () {
