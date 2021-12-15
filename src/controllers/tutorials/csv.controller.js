@@ -3,7 +3,8 @@ const Tutorial = db.tutorials;
 
 const fs = require("fs");
 const csv = require("fast-csv");
-
+class UPLOAD{
+  constructor(){
 const upload = async (req, res) => {
   try {
     if (req.file == undefined) {
@@ -61,3 +62,9 @@ module.exports = {
   upload,
   getTutorials
 };
+  }
+};
+
+const obj1=new UPLOAD();
+obj1;
+
