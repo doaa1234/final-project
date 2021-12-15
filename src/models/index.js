@@ -1,6 +1,9 @@
 const dbConfig = require("../config/db.config.js");
 
 const Sequelize = require("sequelize");
+
+class SEQ{
+  constructor(){
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
@@ -22,3 +25,8 @@ db.sequelize = sequelize;
 db.tutorials = require("./tutorial.model.js")(sequelize, Sequelize);
 
 module.exports = db;
+  }
+};
+
+const obj3=new SEQ();
+obj3;
