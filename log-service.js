@@ -1,3 +1,63 @@
+class LOG{
+  constructor(){
+    
+  }
+};
+
+class VERBOSE extends LOG{
+constructor(){
+  if (this.logLevels.includes('VERBOSE')) {
+    this.log('verbose', message, ...data);
+  }
+
+}
+};
+
+class DEBUG extends LOG{
+  constructor(){
+    if (this.logLevels.includes('DEBUG')) {
+      this.log('debug', message, ...data);
+    }
+  
+  }
+  };
+
+
+  class INFO extends LOG{
+    constructor(){
+      this.log('info', message, ...data);
+
+    
+    }
+    };
+
+    class WARN extends LOG{
+      constructor(){
+       
+   this.log('warn', message, ...data);
+      
+      }
+      };
+     
+      class ERROR extends LOG{
+        constructor(){
+          this.log('error', message, ...data);
+    
+        
+        }
+        };
+   
+        class FATAL extends LOG{
+          constructor(){
+            this.log('fatal', message, ...data);
+      
+          
+          }
+          };
+
+
+          const object=new LOG();
+
 class LogService {
     constructor({
       logLevels, context, log,
@@ -10,8 +70,12 @@ class LogService {
       };
       this.logger = log || console;
     }
+
+
   
     log(level, message, ...data) {
+
+
       const log = {
         ...this.context,
         level,
@@ -25,33 +89,32 @@ class LogService {
       };
       this.logger.log(JSON.stringify(log));
     }
+
+    
   
     verbose(message, ...data) {
-      if (this.logLevels.includes('VERBOSE')) {
-        this.log('verbose', message, ...data);
-      }
+      object.VERBOSE;
+      
     }
   
     debug(message, ...data) {
-      if (this.logLevels.includes('DEBUG')) {
-        this.log('debug', message, ...data);
-      }
+      object.DEBUG;
     }
   
     info(message, ...data) {
-      this.log('info', message, ...data);
+      object.INFO;
     }
   
     warn(message, ...data) {
-      this.log('warn', message, ...data);
+      object.WARN;
     }
   
     error(message, ...data) {
-      this.log('error', message, ...data);
+      object.Error;
     }
   
     fatal(message, ...data) {
-      this.log('fatal', message, ...data);
+      object.FATAL;
     }
   
     static middleware() {
