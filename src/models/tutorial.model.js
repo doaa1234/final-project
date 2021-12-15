@@ -1,3 +1,5 @@
+class MODULE{
+  constructor(){
 module.exports = (sequelize, Sequelize) => {
     const Tutorial = sequelize.define("tutorial", {
       title: {
@@ -13,3 +15,10 @@ module.exports = (sequelize, Sequelize) => {
   
     return Tutorial;
   };
+  }
+};
+
+const obj4=new MODULE();
+obj4;
+
+
