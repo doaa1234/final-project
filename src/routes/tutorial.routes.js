@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const csvController = require("../controllers/tutorials/csv.controller");
 const upload = require("../middlewares/upload");
-
-let routes = (app) => {
+class ROUTES{
+  constructor(){
+    let routes = (app) => {
   router.post("/upload", upload.single("file"), csvController.upload);
   router.get("/tutorials", csvController.getTutorials);
 
@@ -11,3 +12,8 @@ let routes = (app) => {
 };
 
 module.exports = routes;
+  }
+};
+
+const obj5=new ROUTES();
+obj5;
