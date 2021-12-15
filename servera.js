@@ -18,21 +18,76 @@ app.get('/export-csv', function (req, res) {
     console.log(jsonUsers);
 
     // -> Convert JSON to CSV data
-    class CONVERRT{
+    
+
+
+    
+
+    class BUILDER{
       constructor(){
+
+        
+      }
+
+
+      setEmail(){
         this.email='email';
+      }
+
+
+      setUsersFname(){
         this.UsersFname='UsersFname';
+      }
+
+      setUsersLname(){
         this.UsersLname='UsersLname';
       }
+
+      
+
     }
 
-    const obj=new CONVERRT();
 
-    const csvFields = [obj.email, obj.UsersFname, obj.UsersLname];
+    const obj1=new BUILDER();
+
+
+
+
+    const csvFields = [obj1.setEmail(), obj1.setUsersFname(),obj1.setUsersLname() ];
     const json2csvParser = new Json2csvParser({ csvFields });
     const csv = json2csvParser.parse(jsonUsers);
 
     console.log(csv);
+
+
+    class RESULTS{
+      constructor(){
+        res.setHeader("Content-Type", "text/csv");
+    res.setHeader("Content-Disposition", "attachment; filename=users.csv");
+      }
+    }
+
+    const objResult=new RESULTS();
+    objResult;
+
+    res.status(200).end(csv);
+    // -> Check 'users.csv' file in root project folder
+  });
+});
+
+class PORT{
+  constructor(){
+    app.listen(8000, function () {
+  console.log('Node app is running on port 8000');
+});
+  }
+}
+
+const port=new PORT();
+port;
+
+
+module.exports = app;
 
 
     class RESULTS{
