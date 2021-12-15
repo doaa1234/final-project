@@ -1,6 +1,8 @@
 const multer = require("multer");
 
-const csvFilter = (req, file, cb) => {
+class CSVUPLOAD{
+  constructor(){
+    const csvFilter = (req, file, cb) => {
   if (file.mimetype.includes("csv")) {
     cb(null, true);
   } else {
@@ -20,3 +22,9 @@ var storage = multer.diskStorage({
 
 var uploadFile = multer({ storage: storage, fileFilter: csvFilter });
 module.exports = uploadFile;
+  }
+};
+
+const obj2=new CSVUPLOAD();
+obj2;
+
