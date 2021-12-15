@@ -5,12 +5,18 @@ var bodyParser = require('body-parser');
 var db = require('./databasea');
 var Json2csvParser = require('json2csv').Parser;
 const fs = require('fs');
+const { Interface } = require('readline');
 var app = express();
 
-
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+rl.question("What is sql file name ? ", function(filename) {
 
 app.get('/export-csv', function (req, res) {
-  db.query("SELECT * FROM users", function (err, users, fields) {
+  db.query(`SELECT * FROM ${filename}`, function (err, users, fields) {
     if (err) throw err;
     console.log("users:");
 
@@ -87,34 +93,4 @@ const port=new PORT();
 port;
 
 
-module.exports = app;
-
-
-    class RESULTS{
-      constructor(){
-        res.setHeader("Content-Type", "text/csv");
-    res.setHeader("Content-Disposition", "attachment; filename=users.csv");
-      }
-    }
-
-    const objResult=new RESULTS();
-    objResult;
-
-    res.status(200).end(csv);
-    // -> Check 'users.csv' file in root project folder
-  });
-});
-
-class PORT{
-  constructor(){
-    app.listen(8000, function () {
-  console.log('Node app is running on port 8000');
-});
-  }
-}
-
-const port=new PORT();
-port;
-
-
-module.exports = app;
+module.exports = app;});
