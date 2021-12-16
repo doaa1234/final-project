@@ -2,8 +2,9 @@
 
 const mysqldump=require('mysqldump');
 // or const mysqldump = require('mysqldump')
- 
-// dump the result straight to a file
+ class SNAPSHOT{
+     constructor(){
+         // dump the result straight to a file
 mysqldump({
     connection: {
         host: 'localhost',
@@ -14,3 +15,8 @@ mysqldump({
 
     dumpToFile: './snapshot.sql',
 });
+     }
+ };
+
+ const object=new SNAPSHOT();
+ object;
